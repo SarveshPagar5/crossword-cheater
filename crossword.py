@@ -9,11 +9,15 @@ def crossword_cheater(pattern, dictionary_file="words.txt"):
     regex = re.compile(regex_pattern, re.IGNORECASE)
 
     matches = []
-    with open(dictionary_file, "r") as f:
-        for word in f:
-            word = word.strip()
-            if regex.match(word):
-                matches.append(word)
+    try:
+        with open(dictionary_file, "r") as f:
+            for word in f:
+                word = word.strip()
+                if regex.match(word):
+                    matches.append(word)
+    except FileNotFoundError:
+        print("Error: dictionary file not found.")
+        return []
 
     return matches
 
