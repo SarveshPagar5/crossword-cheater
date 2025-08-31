@@ -18,7 +18,7 @@ def crossword_cheater(pattern, dictionary_file="words.txt"):
     except FileNotFoundError:
         print("Error: dictionary file not found.")
         return []
- 
+
     return matches
 
 if __name__ == "__main__":
